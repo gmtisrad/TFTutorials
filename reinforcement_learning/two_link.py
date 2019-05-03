@@ -27,9 +27,9 @@ class QDN_solve:
 
         self.model = keras.Sequential()
 
-        self.model.add(keras.layers.Dense(8, input_shape=(observation_space.shape[0],), activation='relu'))
-        self.model.add(keras.layers.Dense(8, activation='relu'))
-        self.model.add(keras.layers.Dense(self.action_space, activation='sigmoid'))
+        self.model.add(keras.layers.Dense(256, input_shape=(observation_space.shape[0],), activation='relu'))
+        self.model.add(keras.layers.Dense(512, activation='sigmoid'))
+        self.model.add(keras.layers.Dense(self.action_space, activation='relu'))
 
         # Compiles the NN with the mean squared error loss function and the Adam reinforcement optimizer algorithm
         self.model.compile(loss=tf.losses.mean_squared_error,
